@@ -1,91 +1,100 @@
-# lcjs-example-0019-flowCytometryChart
+# JavaScript Flow Cytometry Chart
 
-LightningChartJS example that showcases visualization of a Flow Cytometry data set (FSC + SSC properties)
+![JavaScript Flow Cytometry Chart](flowCytometryChart.png)
 
-## Getting started
+This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+LightningChart JS is entirely GPU accelerated and performance optimized charting library for presenting massive amounts of data. It offers an easy way of creating sophisticated and interactive charts and adding them to your website or web application.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+The demo can be used as an example or a seed project. Local execution requires the following steps:
 
-## Add your files
+- Make sure that relevant version of [Node.js](https://nodejs.org/en/download/) is installed
+- Open the project folder in a terminal:
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+        npm install              # fetches dependencies
+        npm start                # builds an application and starts the development server
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/arction/lcjs/lcjs-examples/lcjs-example-0019-flowcytometrychart.git
-git branch -M master
-git push -uf origin master
-```
+- The application is available at *http://localhost:8080* in your browser, webpack-dev-server provides hot reload functionality.
 
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/project/integrations/)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://docs.gitlab.com/ee/user/clusters/agent/)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:ca032c6e392c683c0c42fd2192e5d70d?https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Flow cytometry is an every-day method in research and clinical practices for analyzing individual cells within heterogeneous samples (like blood sample, for example).
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+It is based on observing the behavior of pointed light, and can rapidly analyze multiple parameters from each cell.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+In this example, all the samples are displayed in a single chart which displays the following information:
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+- Forward scatter (FSC). This is measured based on how much light is scattered along the path of the light source.
+
+- Side scatter (SSC). This is measured based on hot much light is scattered at a ninety-degree angle relative to the light source.
+
+Each point in the chart is one sample. When multiple samples have the same SSC and FSC measurement, the point color is adjusted (red = most overlapping samples).
+
+In practice, the data from flow cytometry is filtered through several steps that each look at the relationship between some data attributes. This example is just 1 of these steps.
+
+As an example of this filtering, some application might select some valid range of FSC/SSC values that will be considered in later analysis steps.
+
+![FSC/SSC Threshold](./assets/threshold.png)
+
+## Flow cytometry and LightningChart
+
+The go-to framework for visualizing flow cytometry is definitely "R", a software environment for statistical computing and graphics.
+
+Here are some scenarios where we believe LightningChart is a strong alternative:
+
+1. Real-time data
+
+LightningChart excels at fast changes to data sets, if your application continuously receives data, especially with high rates like several times in second, LightningChart is what you need.
+
+2. Data interactions
+
+In some cases users might need the ability to interact with data (panning, zooming, cursor, etc.). In many statistical tools, this kind of features do not exist since only a minority would have an use for them. Additionally, even if present they might not perform too well especially with large data sets.
+
+3. Deployment in the internet
+
+R is a desktop application. In most cases, users will install it on their own computer and directly interact with data sets to utilize a shared data visualization application.
+
+LightningChart JS, on the other hand, is a web library. LC JS projects can be conveniently embedded inside web pages, mobile and even desktop applications.
+
+
+## API Links
+
+* [XY cartesian chart]
+* [XY axis]
+* [Point series]
+* [Point shape options]
+* [Paletted fill style]
+* [Color lookup table]
+* [Color factory RGBA]
+
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+If you notice an error in the example code, please open an issue on [GitHub][0] repository of the entire example.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Official [API documentation][1] can be found on [Arction][2] website.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+If the docs and other materials do not solve your problem as well as implementation help is needed, ask on [StackOverflow][3] (tagged lightningchart).
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+If you think you found a bug in the LightningChart JavaScript library, please contact support@arction.com.
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Direct developer email support can be purchased through a [Support Plan][4] or by contacting sales@arction.com.
 
-## License
-For open source projects, say how it is licensed.
+[0]: https://github.com/Arction/
+[1]: https://www.arction.com/lightningchart-js-api-documentation/
+[2]: https://www.arction.com
+[3]: https://stackoverflow.com/questions/tagged/lightningchart
+[4]: https://www.arction.com/support-services/
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+© Arction Ltd 2009-2020. All rights reserved.
+
+
+[XY cartesian chart]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/chartxy.html
+[XY axis]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/axis.html
+[Point series]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/pointseries.html
+[Point shape options]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/enums/pointshape.html
+[Paletted fill style]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/palettedfill.html
+[Color lookup table]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/lut.html
+[Color factory RGBA]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/globals.html#colorrgba
 
