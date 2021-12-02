@@ -61,7 +61,7 @@ const pointSeries = chart.addPointSeries({
 
 fetch(
     document.head.baseURI +
-      "examples/assets/lcjs_example_0019_flowCytometryChart-flowCytometryChart-data.json"
+      "examples/assets/0019/flowCytometryChart-data.json"
   )
     .then((r) => r.json())
     .then((data) => {
