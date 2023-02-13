@@ -2,17 +2,9 @@
  * LightningChartJS example that showcases visualization of a Flow Cytometry data set (FSC + SSC properties).
  */
 // Import LightningChartJS
-const lcjs = require("@arction/lcjs");
+const lcjs = require('@arction/lcjs')
 
-const {
-    lightningChart,
-    PalettedFill,
-    LUT,
-    ColorRGBA,
-    PointShape,
-    translatePoint,
-    Themes,
-} = lcjs;
+const { lightningChart, PalettedFill, LUT, PointShape, translatePoint, ColorRGBA, Themes } = lcjs
 
 const chart = lightningChart()
     .ChartXY({
@@ -24,24 +16,26 @@ const chart = lightningChart()
 
 const axisX = chart
     .getDefaultAxisX()
-    .setInterval(1.3, 10, false, true)
+    .setInterval({ start: 1.3, end: 10 })
     .setTitle('FSC-A (10⁶)')
     .setMouseInteractions(false)
     .setThickness(60)
 
 const axisY = chart
     .getDefaultAxisY()
-    .setInterval(-0.2, 1.8, false, true)
+    .setInterval({ start: -0.2, end: 1.8 })
     .setTitle('SSC-A (10⁶)')
     .setMouseInteractions(false)
     .setThickness(80)
 
-const pointSeries = chart.addPointSeries({
-    pointShape: PointShape.Square
-})
-    .setCursorEnabled(false)
+const pointSeries = chart
+    .addPointSeries({
+        pointShape: PointShape.Square,
+    })
+    // .setCursorEnabled(false)
     .setIndividualPointValueEnabled(true)
     .setPointSize(2)
+    .setCursorResultTableFormatter((builder, _, __, ___, dp) => builder.addRow(`value: `, dp.value?.toFixed(2)))
     .setPointFillStyle(
         new PalettedFill({
             lookUpProperty: 'value',
@@ -59,10 +53,7 @@ const pointSeries = chart.addPointSeries({
         }),
     )
 
-fetch(
-    document.head.baseURI +
-      "examples/assets/0019/flowCytometryChart-data.json"
-  )
+fetch(document.head.baseURI + 'examples/assets/0019/flowCytometryChart-data.json')
     .then((r) => r.json())
     .then((data) => {
         // Align Chart Axis area so that each data point occupies exactly 1 pixel.
@@ -99,11 +90,11 @@ fetch(
         const points = []
         data.data.forEach((column, iColumn) => {
             column.forEach((sample, iRow) => {
-                if (sample === 0) return
+                if (!sample) return
                 points.push({
-                    x: data.x.start + iColumn * (data.x.end - data.x.start) / data.data.length, 
-                    y: data.y.start + iRow * (data.y.end - data.y.start) / data.data[0].length,
-                    value: sample, 
+                    x: data.x.start + (iColumn * (data.x.end - data.x.start)) / data.data.length,
+                    y: data.y.start + (iRow * (data.y.end - data.y.start)) / data.data[0].length,
+                    value: sample,
                 })
             })
         })
