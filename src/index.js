@@ -4,7 +4,7 @@
 // Import LightningChartJS
 const lcjs = require('@arction/lcjs')
 
-const { lightningChart, PalettedFill, LUT, PointShape, translatePoint, ColorRGBA, Themes } = lcjs
+const { lightningChart, PalettedFill, LUT, PointShape, ColorRGBA, Themes } = lcjs
 
 const chart = lightningChart()
     .ChartXY({
@@ -60,15 +60,15 @@ fetch(document.head.baseURI + 'examples/assets/0019/flowCytometryChart-data.json
         const columns = data.data.length
         const rows = data.data[0].length
 
-        const pxLocationAxisStart = translatePoint(
+        const pxLocationAxisStart = chart.translateCoordinate(
             { x: axisX.getInterval().start, y: axisY.getInterval().start },
-            { x: axisX, y: axisY },
-            chart.engine.scale,
+            chart.coordsAxis,
+            chart.coordsRelative,
         )
-        const pxLocationAxisEnd = translatePoint(
+        const pxLocationAxisEnd = chart.translateCoordinate(
             { x: axisX.getInterval().end, y: axisY.getInterval().end },
-            { x: axisX, y: axisY },
-            chart.engine.scale,
+            chart.coordsAxis,
+            chart.coordsRelative,
         )
         const pxAxisSize = {
             x: Math.ceil(pxLocationAxisEnd.x - pxLocationAxisStart.x),
