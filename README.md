@@ -90,11 +90,11 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © LightningChart Ltd 2009-2022. All rights reserved.
 
 
-[XY cartesian chart]: https://lightningchart.com/js-charts/api-documentation/v4.2.0/classes/ChartXY.html
-[XY axis]: https://lightningchart.com/js-charts/api-documentation/v4.2.0/classes/Axis.html
-[Point series]: https://lightningchart.com/js-charts/api-documentation/v4.2.0/classes/PointSeries.html
-[Point shape options]: https://lightningchart.com/js-charts/api-documentation/v4.2.0/enums/PointShape.html
-[Paletted fill style]: https://lightningchart.com/js-charts/api-documentation/v4.2.0/classes/PalettedFill.html
-[Color lookup table]: https://lightningchart.com/js-charts/api-documentation/v4.2.0/classes/LUT.html
-[Color factory RGBA]: https://lightningchart.com/js-charts/api-documentation/v4.2.0/functions/ColorRGBA.html
+[XY cartesian chart]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/ChartXY.html
+[XY axis]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/Axis.html
+[Point series]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/PointSeries.html
+[Point shape options]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/enums/PointShape.html
+[Paletted fill style]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/PalettedFill.html
+[Color lookup table]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/LUT.html
+[Color factory RGBA]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/functions/ColorRGBA.html
 
