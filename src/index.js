@@ -8,7 +8,7 @@ const { lightningChart, PalettedFill, LUT, PointShape, ColorRGBA, Themes } = lcj
 
 const chart = lightningChart()
     .ChartXY({
-        theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
+        theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined
     })
     .setTitle('Flow Cytometry Visualization')
     .setMouseInteractions(false)
