@@ -53,7 +53,7 @@ const pointSeries = chart
         }),
     )
 
-fetch(document.head.baseURI + 'examples/assets/0019/flowCytometryChart-data.json')
+fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'examples/assets/0019/flowCytometryChart-data.json')
     .then((r) => r.json())
     .then((data) => {
         // Align Chart Axis area so that each data point occupies exactly 1 pixel.
