@@ -2,7 +2,7 @@
  * LightningChartJS example that showcases visualization of a Flow Cytometry data set (FSC + SSC properties).
  */
 // Import LightningChartJS
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 
 const { lightningChart, PalettedFill, LUT, PointShape, ColorRGBA, Themes } = lcjs
 
@@ -34,10 +34,8 @@ const pointSeries = chart
     .addPointSeries({
         pointShape: PointShape.Square,
     })
-    // .setCursorEnabled(false)
     .setIndividualPointValueEnabled(true)
     .setPointSize(2)
-    .setCursorResultTableFormatter((builder, _, __, ___, dp) => builder.addRow(`value: `, dp.value?.toFixed(2)))
     .setPointFillStyle(
         new PalettedFill({
             lookUpProperty: 'value',
