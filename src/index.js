@@ -4,7 +4,7 @@
 // Import LightningChartJS
 const lcjs = require('@lightningchart/lcjs')
 
-const { lightningChart, PalettedFill, LUT, PointShape, ColorRGBA, Themes } = lcjs
+const { lightningChart, PalettedFill, LUT, PointShape, ColorRGBA, emptyLine, Themes } = lcjs
 
 const chart = lightningChart({
             resourcesBaseUrl: new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'resources/',
@@ -13,28 +13,39 @@ const chart = lightningChart({
         theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
     })
     .setTitle('Flow Cytometry Visualization')
-    .setMouseInteractions(false)
-    .setPadding(0)
+    .setUserInteractions(undefined)
 
-const axisX = chart
-    .getDefaultAxisX()
-    .setInterval({ start: 1.3, end: 10 })
-    .setTitle('FSC-A (10⁶)')
-    .setMouseInteractions(false)
-    .setThickness(60)
+// Example: Fixed aspect ratio, extra space is allocated as chart padding
+const aspectRatio = 1.8 // width / height
+chart.addEventListener('layoutchange', (info) => {
+    const spaceAvailable = { x: info.viewportWidth + chart.getPadding().right, y: info.viewportHeight + chart.getPadding().bottom }
+    // Fit desired aspect ratio within space available in chart.
+    let width
+    let height
+    if (spaceAvailable.x / spaceAvailable.y > aspectRatio) {
+        height = spaceAvailable.y
+        width = height * aspectRatio
+    } else {
+        width = spaceAvailable.x
+        height = width / aspectRatio
+    }
+    chart.setPadding({
+        right: chart.getPadding().right + (info.viewportWidth - width) + 20,
+        bottom: chart.getPadding().bottom + (info.viewportHeight - height) + 20,
+    })
+})
 
-const axisY = chart
-    .getDefaultAxisY()
-    .setInterval({ start: -0.2, end: 1.8 })
-    .setTitle('SSC-A (10⁶)')
-    .setMouseInteractions(false)
-    .setThickness(80)
+const axisX = chart.getDefaultAxisX().setInterval({ start: 1.3, end: 10 }).setTitle('FSC-A (10⁶)')
+
+const axisY = chart.getDefaultAxisY().setInterval({ start: -0.2, end: 1.8 }).setTitle('SSC-A (10⁶)')
 
 const pointSeries = chart
-    .addPointSeries({
-        pointShape: PointShape.Square,
+    .addPointLineAreaSeries({
+        dataPattern: null,
+        lookupValues: true,
     })
-    .setIndividualPointValueEnabled(true)
+    .setStrokeStyle(emptyLine)
+    .setPointShape(PointShape.Square)
     .setPointSize(2)
     .setPointFillStyle(
         new PalettedFill({
@@ -98,5 +109,5 @@ fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pat
                 })
             })
         })
-        pointSeries.add(points)
+        pointSeries.appendJSON(points, { x: 'x', y: 'y', lookupValue: 'value' })
     })
