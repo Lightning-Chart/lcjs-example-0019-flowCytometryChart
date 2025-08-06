@@ -10,6 +10,7 @@ const chart = lightningChart({
             resourcesBaseUrl: new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'resources/',
         })
     .ChartXY({
+        legend: { visible: false },
         theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
     })
     .setTitle('Flow Cytometry Visualization')
@@ -40,11 +41,12 @@ const axisX = chart.getDefaultAxisX().setInterval({ start: 1.3, end: 10 }).setTi
 const axisY = chart.getDefaultAxisY().setInterval({ start: -0.2, end: 1.8 }).setTitle('SSC-A (10⁶)')
 
 const pointSeries = chart
-    .addPointLineAreaSeries({
-        dataPattern: null,
-        lookupValues: true,
+    .addPointSeries({
+        schema: {
+            x: { pattern: null },
+            y: { pattern: null },
+        },
     })
-    .setStrokeStyle(emptyLine)
     .setPointShape(PointShape.Square)
     .setPointSize(2)
     .setPointFillStyle(
@@ -63,6 +65,7 @@ const pointSeries = chart
             }),
         }),
     )
+    .setPointStrokeStyle(emptyLine)
 
 fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'examples/assets/0019/flowCytometryChart-data.json')
     .then((r) => r.json())
@@ -109,5 +112,5 @@ fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pat
                 })
             })
         })
-        pointSeries.appendJSON(points, { x: 'x', y: 'y', lookupValue: 'value' })
+        pointSeries.appendJSON(points).setDataMapping({ x: 'x', y: 'y', lookupValue: 'value' })
     })
