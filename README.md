@@ -27,7 +27,7 @@ In this example, all the samples are displayed in a single chart which displays 
 
 -   Forward scatter (FSC). This is measured based on how much light is scattered along the path of the light source.
 
--   Side scatter (SSC). This is measured based on hot much light is scattered at a ninety-degree angle relative to the light source.
+-   Side scatter (SSC). This is measured based on how much light is scattered at a ninety-degree angle relative to the light source.
 
 Each point in the chart is one sample. When multiple samples have the same SSC and FSC measurement, the point color is adjusted (red = most overlapping samples).
 
@@ -90,11 +90,11 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © LightningChart Ltd 2009-2025. All rights reserved.
 
 
-[XY cartesian chart]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/ChartXY.html
-[XY axis]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/Axis.html
-[Point series]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/PointSeries.html
-[Point shape options]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/enums/PointShape.html
-[Paletted fill style]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/PalettedFill.html
-[Color lookup table]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/LUT.html
-[Color factory RGBA]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/functions/ColorRGBA.html
+[XY cartesian chart]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/ChartXY.html
+[XY axis]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/Axis.html
+[Point series]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/PointLineAreaSeries.html
+[Point shape options]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/enums/PointShape.html
+[Paletted fill style]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/PalettedFill.html
+[Color lookup table]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/LUT.html
+[Color factory RGBA]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/functions/ColorRGBA.html
 
